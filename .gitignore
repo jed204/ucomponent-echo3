@@ -6,3 +6,4 @@ logs
 dist
 output
 .DS_Store
+build.local.properties
