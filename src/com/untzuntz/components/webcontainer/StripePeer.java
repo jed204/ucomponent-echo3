@@ -33,13 +33,18 @@ public class StripePeer extends AbstractComponentSynchronizePeer {
     	super();
     	
         addOutputProperty(Stripe.PROPERTY_STRIPE_PUBLIC_KEY);
-        addOutputProperty(Stripe.PROPERTY_SUBMIT_BUTTON_TEXT);
-        addOutputProperty(Stripe.PROPERTY_NAME_ON_CARD);
+        addOutputProperty(Stripe.PROPERTY_PROCESS_FLAG);
+        
+        addOutputProperty(Stripe.PROPERTY_NAME_FIELD_ID);
+        addOutputProperty(Stripe.PROPERTY_CARD_FIELD_ID);
+        addOutputProperty(Stripe.PROPERTY_CVC_FIELD_ID);
+        addOutputProperty(Stripe.PROPERTY_EXP_MONTH_FIELD_ID);
+        addOutputProperty(Stripe.PROPERTY_EXP_YEAR_FIELD_ID);
+        addOutputProperty(Stripe.PROPERTY_ADDR_ZIP);
         addOutputProperty(Stripe.PROPERTY_ADDR_LINE1);
         addOutputProperty(Stripe.PROPERTY_ADDR_LINE2);
         addOutputProperty(Stripe.PROPERTY_ADDR_CITY);
         addOutputProperty(Stripe.PROPERTY_ADDR_STATE);
-        addOutputProperty(Stripe.PROPERTY_ADDR_ZIP);
         addOutputProperty(Stripe.PROPERTY_ADDR_COUNTRY);
 
     	addEvent(new EventPeer(Stripe.INPUT_ACTION, Stripe.ACTION_LISTENERS_CHANGED_PROPERTY) {
@@ -81,6 +86,8 @@ public class StripePeer extends AbstractComponentSynchronizePeer {
     	System.out.println("Getting Prop Class: " + propertyName);
         if (Stripe.PROPERTY_TRANSACTION_TOKEN.equals(propertyName))
             return String.class;
+        if (Stripe.PROPERTY_ERROR_MESSAGE.equals(propertyName))
+            return String.class;
         
         return null;
     }
@@ -91,6 +98,10 @@ public class StripePeer extends AbstractComponentSynchronizePeer {
         if (propertyName.equals(Stripe.PROPERTY_TRANSACTION_TOKEN)) {
             ClientUpdateManager clientUpdateManager = (ClientUpdateManager) context.get(ClientUpdateManager.class);
             clientUpdateManager.setComponentProperty(component, Stripe.PROPERTY_TRANSACTION_TOKEN, newValue);
+        }
+        else if (propertyName.equals(Stripe.PROPERTY_ERROR_MESSAGE)) {
+            ClientUpdateManager clientUpdateManager = (ClientUpdateManager) context.get(ClientUpdateManager.class);
+            clientUpdateManager.setComponentProperty(component, Stripe.PROPERTY_ERROR_MESSAGE, newValue);
         }
     }    
 

@@ -15,6 +15,8 @@
 	<!-- ================== -->
 	<!-- === PROPERTIES === -->
 	<!-- ================== -->
+	<property file="build.local.properties" />
+		
 	<property name="src" location="${basedir}/src"/>
 	<property name="build" location="${basedir}/build"/>
 	<property name="app.output" value="${basedir}/output"/>
@@ -102,6 +104,18 @@
 	    		<fileset dir="${build}/${app.name}-jar/" includes="**" />
 	  	</jar>
 
+	</target>
+
+	<target name="outputdir1" depends="UntzUntzComponents-jar" if="outputdir1"><echo message="Copying JAR to ${outputdir1}"/><copy todir="${outputdir1}"><fileset dir="${app.output}" includes="${app.name}.jar"/></copy></target>
+	<target name="outputdir2" depends="UntzUntzComponents-jar" if="outputdir2"><echo message="Copying JAR to ${outputdir2}"/><copy todir="${outputdir2}"><fileset dir="${app.output}" includes="${app.name}.jar"/></copy></target>			
+	<target name="outputdir3" depends="UntzUntzComponents-jar" if="outputdir3"><echo message="Copying JAR to ${outputdir3}"/><copy todir="${outputdir3}"><fileset dir="${app.output}" includes="${app.name}.jar"/></copy></target>			
+	<target name="outputdir4" depends="UntzUntzComponents-jar" if="outputdir4"><echo message="Copying JAR to ${outputdir4}"/><copy todir="${outputdir4}"><fileset dir="${app.output}" includes="${app.name}.jar"/></copy></target>			
+	<target name="outputdir5" depends="UntzUntzComponents-jar" if="outputdir5"><echo message="Copying JAR to ${outputdir5}"/><copy todir="${outputdir5}"><fileset dir="${app.output}" includes="${app.name}.jar"/></copy></target>			
+
+	<target name="UntzUntzComponents-dist" depends="UntzUntzComponents-jar,outputdir1,outputdir2,outputdir3,outputdir4,outputdir5">
+		
+		<echo message="JAR Distribution complete!"/>
+		
 	</target>
 
 	
