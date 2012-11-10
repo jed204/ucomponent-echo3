@@ -4,7 +4,7 @@
     <groupId>com.untzuntz.ustack</groupId>
     <artifactId>ustack-echo3-components</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>UntzUntz UStack Echo3 Components</name>
 	<licenses>
 	    <license>
@@ -95,8 +95,8 @@
     </scm>
 	<distributionManagement>
 	  <repository>
-	    <id>bert</id>
-	    <url>http://bert.intelegrid.net/nexus/content/repositories/releases</url>
+	    <id>intelemage</id>
+	    <url>http://mvn.intelegrid.net/nexus/content/repositories/releases</url>
 	  </repository>
 	</distributionManagement>
 </project>
