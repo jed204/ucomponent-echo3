@@ -14,6 +14,7 @@ public class InteleViewerLaunch extends Component {
     public static final String PROPERTY_BASE_URL = "baseUrl";
     public static final String PROPERTY_USERNAME = "userName";
     public static final String PROPERTY_SESSION_ID = "sessionId";
+    public static final String PROPERTY_LAUNCH_ID = "lid";
     public static final String PROPERTY_ACC_NUM = "accessionNumber";
     public static final String PROPERTY_PAT_ID = "patientId";
     public static final String PROPERTY_LAUNCH_RESULT = "launchResult";
