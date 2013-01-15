@@ -6,10 +6,8 @@ import nextapp.echo.webcontainer.AbstractComponentSynchronizePeer;
 import nextapp.echo.webcontainer.ServerMessage;
 import nextapp.echo.webcontainer.Service;
 import nextapp.echo.webcontainer.WebContainerServlet;
-import nextapp.echo.webcontainer.AbstractComponentSynchronizePeer.EventPeer;
 import nextapp.echo.webcontainer.service.JavaScriptService;
 
-import com.untzuntz.components.app.ActiveXControl;
 import com.untzuntz.components.app.JavaScriptLoader;
 
 /**
