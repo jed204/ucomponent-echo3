@@ -4,7 +4,7 @@
     <groupId>com.untzuntz.ustack</groupId>
     <artifactId>ustack-echo3-components</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <name>UntzUntz UStack Echo3 Components</name>
 	<licenses>
 	    <license>

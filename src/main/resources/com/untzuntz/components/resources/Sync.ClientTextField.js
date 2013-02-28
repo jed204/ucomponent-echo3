@@ -44,7 +44,7 @@ UntzUntz.ClientTextField.Peer = Core.extend(Echo.Sync.TextField, {
          * Processes a focus event. Notifies application of focus.
          * Overriding implementations must invoke.
          */
-        processFocus: function(e) {
+        processNewFocus: function(e) {
             this._focused = true;
             if (this.client) {
                 if (this.component.isActive()) {

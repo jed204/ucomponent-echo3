@@ -14,6 +14,7 @@ UntzUntz.Stripe = Core.extend(Echo.Component, {
     
     doAction: function() {
     
+    	Core.Debug.consoleWrite("doACtion called");
         var updateEvent = {type: "action", source: this, actionCommand: this.get("actionCommand")};
         var client = this.application.client;
         if(client._processClientUpdate)
@@ -46,14 +47,17 @@ UntzUntz.Stripe.Peer = Core.extend(Echo.Render.ComponentSync, {
         this._node.id = this.component.renderId;
 
 		// Load Stripe.js
+    	Core.Debug.consoleWrite("Loading Stripe");
 		var script = document.createElement('script');
+		script.setAttribute('type', 'text/javascript');
 		script.setAttribute("src", "https://js.stripe.com/v1/");
-		script.onload = this.stripeLoadedCallback;
-		script.onreadystatechange = function() {
-			if (this.readyState == 'complete') {
-				this.stripeLoadedCallback();
-			}
-		}			
+		//script.onload = this.stripeLoadedCallback;
+		//script.onreadystatechange = function() {
+		//	if (this.readyState == 'complete') {
+    	//		Core.Debug.consoleWrite("Stripe Script 'complete'");
+		//		this.stripeLoadedCallback();
+		//	}
+		//}			
         this._node.appendChild(script);
         this._containerElement.appendChild(this._node);
        
@@ -74,14 +78,22 @@ UntzUntz.Stripe.Peer = Core.extend(Echo.Render.ComponentSync, {
     
     _submitPayment : function()
     {
+		Core.Debug.consoleWrite("Stripe Key: " + stripeCtrl.component.get("stripePublicKey"));
+		Stripe.setPublishableKey( stripeCtrl.component.get("stripePublicKey") );
     	// disable the submit button to prevent repeated clicks
 	
     	var str = { };
     	str.name = this._getValueFromField("nameFieldId");
     	str.number = this._getValueFromField("cardNumberFieldId");
     	str.cvc = this._getValueFromField("cvcFieldId");
-    	str.exp_month = this._getValueFromField("expMonthFieldId");
-    	str.exp_year = this._getValueFromField("expYearFieldId");
+    	
+    	var eM = document.getElementById("C.CardExpMon");
+    	var eY = document.getElementById("C.CardExpYear");
+    	str.exp_month = eM.options[eM.selectedIndex].value;
+    	str.exp_year = eY.options[eY.selectedIndex].value;
+
+		Core.Debug.consoleWrite("B-exp_month: " + str.exp_month);
+		Core.Debug.consoleWrite("B-exp_year: " + str.exp_year);
 
     	str.address_zip = this._getValueFromField("addressZipFieldId");
     	str.address_line1 = this._getValueFromField("addressLine1FieldId");
