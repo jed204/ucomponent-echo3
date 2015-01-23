@@ -4,7 +4,7 @@
     <groupId>com.untzuntz.ustack</groupId>
     <artifactId>ustack-echo3-components</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <name>UntzUntz UStack Echo3 Components</name>
 	<licenses>
 	    <license>
@@ -23,6 +23,11 @@
         	<groupId>com.nextapp</groupId>
         	<artifactId>echo3-webcontainer</artifactId>
         	<version>3.0.0.RC1</version>
+        </dependency>
+        <dependency>
+        	<groupId>javax.servlet</groupId>
+        	<artifactId>servlet-api</artifactId>
+        	<version>2.5</version>
         </dependency>
     </dependencies>
     <description>UntzUntz UStack Echo3 Components</description>

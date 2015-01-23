@@ -142,6 +142,7 @@ UntzUntz.FancyButton.Peer = Core.extend(Echo.Sync.Button, {
         }
 
         this.renderContent();
+        this.div.innerHTML = this.component.render("text");
 
         if (this.enabled) {
             // Add event listeners for focus and mouse rollover.  When invoked, these listeners will register the full gamut
@@ -160,8 +161,6 @@ UntzUntz.FancyButton.Peer = Core.extend(Echo.Sync.Button, {
 		this.processBackgroundGradient();
 
         parentElement.appendChild(this.div);  
-        
-        this.div.innerHTML = this.div.innerText;
     },
     
 	/**
